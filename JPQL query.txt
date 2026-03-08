@@ -1,0 +1,9 @@
+JPQL Query to fetch Customer by email:
+
+SELECT c FROM Customer c WHERE c.email = :email
+
+Implementation:
+
+TypedQuery<Customer> query=em.createQuery("SELECT c FROM Customer c WHERE c.email = :email", Customer.class);
+query.setParameter("email", email);
+Customer customer = query.getSingleResult();
